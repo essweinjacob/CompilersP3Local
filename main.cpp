@@ -63,9 +63,8 @@ int main(int argc, char *argv[]){
 
         // Build Tree
         Node *root = parser.parse();
-
-        printPreorder(root);
         
+        // Verify semantics of parse tree
         semantics.verify(root);
 
 

@@ -125,7 +125,7 @@ Node *Parser::program(){
 // This the vars BNF function I really dont want to have to comment this out as its redundent, its the same shit as above basically
 Node *Parser::vars(){
     Node *node = newNode("<vars>");
-    cout << "<vars>" << endl;
+    //cout << "<vars>" << endl;
 
     if((tk.id == keywordTK) && (keywordMap[tk.val] == "letTK")){
         nextScan();
@@ -167,7 +167,7 @@ Node *Parser::vars(){
 // Block BNF Function
 Node *Parser::block(){
     Node *node = newNode("<block>");
-    cout << "<block>" << endl;
+    //cout << "<block>" << endl;
     if((tk.id == opTK) && (opMap[tk.val] == "leftCurlTK")){
         nextScan();
 
@@ -192,7 +192,7 @@ Node *Parser::block(){
 // expr BNF function
 Node *Parser::expr(){
     Node *node = newNode("<expr>");
-    cout << "<expr>" << endl;
+    //cout << "<expr>" << endl;
 
     node->n1 = N();
 
@@ -215,7 +215,7 @@ Node *Parser::expr(){
 // N BNF function
 Node *Parser::N(){
     Node *node = newNode("<N>");
-    cout << "<N>" << endl;
+    //cout << "<N>" << endl;
 
     node->n1 = A();
 
@@ -239,7 +239,7 @@ Node *Parser::N(){
 // A BNF function
 Node *Parser::A(){
     Node *node = newNode("<A>");
-    cout << "<A>" << endl;
+    //cout << "<A>" << endl;
     if((tk.id == opTK) && (opMap[tk.val] == "modTK")){
         node->tokens.push_back(tk);;
         nextScan();
@@ -255,7 +255,7 @@ Node *Parser::A(){
 // R BNF function
 Node *Parser::R(){
     Node *node = newNode("<R>");
-    cout << "<R>" << endl;
+    //cout << "<R>" << endl;
 
     if((tk.id == opTK) && (opMap[tk.val] == "leftBracketTK")){
         nextScan();
@@ -273,10 +273,10 @@ Node *Parser::R(){
         nextScan();
         return node;
     }else if(tk.id == intTK){
-        cout << tk.val << endl;
+        //cout << tk.val << endl;
         node->tokens.push_back(tk);
         nextScan();
-        cout << tk.val << endl;
+        //cout << tk.val << endl;
         return node;
     }else{
         predictTK.assign("[ or Identifier or Integer");
@@ -288,7 +288,7 @@ Node *Parser::R(){
 // stats BNF Function
 Node *Parser::stats(){
     Node *node = newNode("<stats>");
-    cout << "<stats>" << endl;
+    //cout << "<stats>" << endl;
 
     node->n1 = stat();
     node->n2 = mStat();
@@ -299,7 +299,7 @@ Node *Parser::stats(){
 // mStat BNF function
 Node *Parser::mStat(){
     Node *node = newNode("<mStat>");
-    cout << "<mStats>" << endl;
+    //cout << "<mStats>" << endl;
 
     if(((tk.id == keywordTK) && ((keywordMap[tk.val] == "scanfTK") || (keywordMap[tk.val] == "printfTK") || (keywordMap[tk.val] == "ifTK") || (keywordMap[tk.val] == "iterTK")))
         || ((tk.id == opTK) && (opMap[tk.val] == "leftCurlTK")) 
@@ -318,7 +318,7 @@ Node *Parser::mStat(){
 // stat BNF function
 Node *Parser::stat(){
     Node *node = newNode("<stat>");
-    cout << "<stat>" << endl;
+    //cout << "<stat>" << endl;
 
     if(tk.id == keywordTK){
         if(keywordMap[tk.val] == "scanfTK"){
@@ -395,7 +395,7 @@ Node *Parser::stat(){
 // in BNF function
 Node *Parser::in(){
     Node *node = newNode("<in>");
-    cout << "<in>" << endl;
+    //cout << "<in>" << endl;
 
     if((tk.id == keywordTK) && (keywordMap[tk.val] == "scanfTK")){
         nextScan();
@@ -435,7 +435,7 @@ Node *Parser::in(){
 // out BNF function
 Node *Parser::out(){
     Node *node = newNode("<out>");
-    cout << "<out>" << endl;
+    //cout << "<out>" << endl;
 
     if((tk.id == keywordTK) && (keywordMap[tk.val] == "printfTK")){
         nextScan();
@@ -465,7 +465,7 @@ Node *Parser::out(){
 // if BNF function
 Node *Parser::iff(){
     Node *node = newNode("<if>");
-    cout << "<if>" << endl;
+    //cout << "<if>" << endl;
 
     if((tk.id == keywordTK) && (keywordMap[tk.val] == "ifTK")){
         nextScan();
@@ -509,7 +509,7 @@ Node *Parser::iff(){
 // loop BNF function
 Node *Parser::loop(){
     Node *node = newNode("<loop>");
-    cout << "<loop>" << endl;
+    //cout << "<loop>" << endl;
 
     if((tk.id == keywordTK) && (keywordMap[tk.val] == "iterTK")){
         nextScan();
@@ -544,7 +544,7 @@ Node *Parser::loop(){
 // assign BNF function
 Node *Parser::assign(){
     Node *node = newNode("<assign>");
-    cout << "<assign>" << endl;
+    //cout << "<assign>" << endl;
 
     if(tk.id == idTK){
         nextScan();
@@ -580,7 +580,7 @@ Node *Parser::assign(){
 // RO BNF function
 Node *Parser::RO(){
     Node *node = newNode("<RO>");
-    cout << "<R0>" << endl;
+    //cout << "<R0>" << endl;
 
     if(tk.id == opTK){
         if(opMap[tk.val] == "lessThanEqualTK"){

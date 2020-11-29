@@ -10,13 +10,13 @@ using namespace std;
 
 typedef struct symbolTable{
     Token id;
+    int scope;
 }SymbolTable;
 
 class Semantics{
     private:
         SymbolTable holder;
-        vector<SymbolTable>globalSt;
-        vector<SymbolTable>localSt;
+        vector<SymbolTable>st;
 
         stack <int>blockStack;
 
