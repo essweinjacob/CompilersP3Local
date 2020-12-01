@@ -1,4 +1,5 @@
 CC = g++
+localSupport.c: CXXFlags += -w
 CFLAGS = -Wall -g -std=c++11
 
 MASTER_SRC = main.cpp
@@ -7,7 +8,7 @@ AUX = node.h
 MASTER_OBJ = $(MASTER_SRC:.cpp=.o)
 OBJ = $(SRC:.h=.o)
 
-MASTER = frontEnd
+MASTER = statSem
 
 OUTPUT = $(MASTER)
 all: $(OUTPUT)

@@ -1,0 +1,7 @@
+Notes:
+	Warning on compilation for localSupport.cpp because unsigned int v.s. signed int, idk how to fix but it doesnt have an impact on the program
+
+	I used local semantics :)
+
+To run:
+	statSem [file]
